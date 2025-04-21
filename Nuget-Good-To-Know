@@ -1,0 +1,73 @@
+Prerequisites
+The .NET Core SDK, which provides the dotnet command-line tool. Starting in Visual Studio 2017, the dotnet CLI automatically installs with all .NET and .NET Core related workloads.
+Install or update a package
+The dotnet add package command adds a package reference to the project file, and then runs dotnet restore to install the package.
+
+Open a command line and switch to the directory that contains your project file.
+
+Use the following command to install a NuGet package:
+
+.NET CLI
+
+Copy
+dotnet add package <PACKAGE_NAME>
+For example, to install the Newtonsoft.Json package, use the following command
+
+.NET CLI
+
+Copy
+dotnet add package Newtonsoft.Json
+After the command completes, you can open the project file to see the package reference.
+
+For example, open the .csproj file to see the added Newtonsoft.Json package reference:
+
+XML
+
+Copy
+<ItemGroup>
+  <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+</ItemGroup>
+Install a specific version of a package
+The dotnet add package command installs the latest version of the package unless you specify a different version.
+
+To install a specific version of a NuGet package, use the optional -v or --version switch:
+
+.NET CLI
+
+Copy
+dotnet add package <PACKAGE_NAME> -v <VERSION>
+For example, to add version 12.0.1 of the Newtonsoft.Json package, use this command:
+
+.NET CLI
+
+Copy
+dotnet add package Newtonsoft.Json --version 12.0.1
+List package references
+List the package references and versions for your project by using the dotnet list package command:
+
+.NET CLI
+
+Copy
+dotnet list package
+Remove a package
+Use the dotnet remove package command to remove a package reference from the project file.
+
+.NET CLI
+
+Copy
+dotnet remove package <PACKAGE_NAME>
+For example, to remove the Newtonsoft.Json package, use the following command:
+
+.NET CLI
+
+Copy
+dotnet remove package Newtonsoft.Json
+Restore packages
+The dotnet restore command restores packages that the project file lists with <PackageReference>. For more information, see PackageReference in project files.
+
+.NET Core 2.0 and later dotnet build and dotnet run commands restore packages automatically. As of NuGet 4.0, dotnet restore runs the same code as nuget restore.
+
+To restore a package with dotnet restore:
+
+Open a command line and switch to the directory that contains your project file.
+Run dotnet restore.
